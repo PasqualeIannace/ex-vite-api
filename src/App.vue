@@ -1,20 +1,29 @@
 <script>
 import Section1 from './components/Section1.vue'
 import axios from 'axios'
+import { beers } from "./components/myBeers.js"
 
 export default {
     components: {
 		Section1
 	},
 
+    data() {
+        return {
+            beers,
+        }
+    },
+
     mounted() {
-        this.test();
+        this.getApi();
     },
 
     methods: {
-        test() {
-            axios.get("https://api.openbrewerydb.org/v1/breweries?by_country=ireland&per_page=10").then(prova => {
-                console.log(prova);
+        getApi() {
+            axios.get(this.beers.apriUrl).then(result => {
+                this.beers.beersArr = result.data;
+                console.log(this.beers.beersArr);
+                console.log(this.beers.beersArr[0].name);
             });
         }
     }
@@ -22,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <Section1 />
+  <Section1 v-for="item in beers.beersArr" :birra="item"></Section1>/>
 </template>
 
 <style scoped>
