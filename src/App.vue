@@ -23,7 +23,7 @@ export default {
             axios.get(this.beers.apriUrl).then(result => {
                 this.beers.beersArr = result.data;
                 console.log(this.beers.beersArr);
-                console.log(this.beers.beersArr[0].name);
+                console.log(this.beers.beersArr[0]);
             });
         }
     }
@@ -31,7 +31,10 @@ export default {
 </script>
 
 <template>
-  <Section1 v-for="item in beers.beersArr" :birra="item"></Section1>/>
+    <h1>Le nostre birre Irlandesi</h1>
+    <div class="container">
+        <Section1 v-for="item in beers.beersArr" :birra="item" />
+    </div>
 </template>
 
 <style scoped>

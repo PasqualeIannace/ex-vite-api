@@ -11,10 +11,12 @@ export default {
 
 <template>
     <div>
-        {{ birra.name }}
+        <p>{{ birra.name }}</p>
     </div>
 </template>
 
 <style scoped>
-
+    p {
+        padding: 1em 0;
+    }
 </style>
