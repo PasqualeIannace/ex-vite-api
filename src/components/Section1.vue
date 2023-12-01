@@ -1,6 +1,4 @@
 <script>
-    console.log("Main collegato");
-
 export default {
 	props: {
 		birra: Object

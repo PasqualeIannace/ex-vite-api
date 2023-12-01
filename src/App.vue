@@ -1,11 +1,14 @@
 <script>
 import Section1 from './components/Section1.vue'
+import AppSearch from './components/AppSearch.vue'
+
 import axios from 'axios'
 import { beers } from "./components/myBeers.js"
 
 export default {
     components: {
-		Section1
+		Section1,
+        AppSearch
 	},
 
     data() {
@@ -21,9 +24,8 @@ export default {
     methods: {
         getApi() {
             axios.get(this.beers.apriUrl).then(result => {
+                console.log(result.data)
                 this.beers.beersArr = result.data;
-                console.log(this.beers.beersArr);
-                console.log(this.beers.beersArr[0]);
             });
         }
     }
@@ -32,9 +34,10 @@ export default {
 
 <template>
     <h1>Le nostre birre Irlandesi</h1>
-    <div class="container">
+    <main class="container">
+        <AppSearch />
         <Section1 v-for="item in beers.beersArr" :birra="item" />
-    </div>
+    </main>
 </template>
 
 <style scoped>
