@@ -28,7 +28,7 @@ export default {
     <select v-model="beers.selectedString">
         <option disabled value="">Scegli qui</option>
         <option value="&by_type=brewpub">BrewPub</option>
-        <option>Micro</option>
+        <option value="&by_type=micro">Micro</option>
         <option>C</option>
     </select>
     <button @click="search">Filtra</button>

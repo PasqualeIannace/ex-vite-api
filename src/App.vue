@@ -41,7 +41,7 @@ export default {
 
             axios.get(indirizzo).then(r => {
                 console.log(r.data);
-                // this.beers.beersArr = result.data;
+                this.beers.beersArr = r.data;
             });
 
             }
